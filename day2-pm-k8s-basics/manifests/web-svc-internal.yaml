@@ -1,0 +1,14 @@
+# 실습 ⑦: ClusterIP로 클러스터 내부 통신
+# 적용:  kubectl apply -f web-svc-internal.yaml
+# 확인:  kubectl run test --rm -it --image=busybox -- wget -qO- web-internal
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-internal
+spec:
+  selector:
+    app: web
+  ports:
+  - port: 80
+    targetPort: 80

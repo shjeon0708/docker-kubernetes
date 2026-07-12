@@ -1,0 +1,22 @@
+# 실습 ③: Deployment 배포 (Pod 3개 복제)
+# 적용:  kubectl apply -f web-deploy.yaml
+# 확인:  kubectl get pods -o wide
+#        kubectl get deploy web
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: web
+        image: nginx:1.25

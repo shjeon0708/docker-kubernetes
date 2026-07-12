@@ -1,0 +1,6 @@
+apiVersion: v2
+name: myapp-chart
+description: 3일차 실습용 myapp Helm 차트
+type: application
+version: 0.1.0
+appVersion: "1.0"

@@ -1,0 +1,9 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/<계정>/myapp
+  tag: "v1"
+
+service:
+  port: 80
+  targetPort: 5000

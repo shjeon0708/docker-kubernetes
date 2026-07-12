@@ -1,0 +1,9 @@
+# CMD vs ENTRYPOINT 비교 실습 (2/2) — ENTRYPOINT + CMD 조합
+#
+# 빌드:  docker build -f Dockerfile.entry -t t2 .
+# 실행:  docker run t2                # -> 기본 메시지
+#        docker run t2 다른말          # -> echo 뒤에 "다른말"이 인자로 결합
+
+FROM busybox
+ENTRYPOINT ["echo"]
+CMD ["기본 메시지"]
