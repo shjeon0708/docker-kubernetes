@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports: ["8000:5000"]
+    environment:
+      - APP_ENV=development
+    restart: unless-stopped
+    depends_on: [redis]
+  redis:
+    image: redis:7-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+    volumes: ["redisdata:/data"]
+volumes:
+  redisdata:
