@@ -3,20 +3,3 @@ ubuntu https://drive.google.com/file/d/1fQyTD6rSDQAojymSsDD7ug12tKMuKJ_U/view?us
 vmware https://drive.google.com/file/d/1kQFqr5kqvK3EtvAi2pfeewI7DMaAnPY0/view?usp=drive_link
 
 
-# 1) 사전 패키지 및 GPG 키 등록
-sudo apt update
-sudo apt -y install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL \
-  https://download.docker.com/linux/ubuntu/gpg \
-  -o /etc/apt/keyrings/docker.asc
-
-# 2) 도커 저장소 추가
-echo "deb [signed-by=/etc/apt/keyrings/docker.asc] \
-  https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo $VERSION_CODENAME) stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list
-
-# 3) 도커 엔진 설치
-sudo apt update && sudo apt -y install docker-ce \
-  docker-ce-cli containerd.io docker-compose-plugin
