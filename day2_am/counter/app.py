@@ -10,3 +10,6 @@ r = redis.Redis(
 def count():
   n = r.incr('hits')
   return f'방문 {n}회'
+
+app.run(host='0.0.0.0',
+        port=5000)
